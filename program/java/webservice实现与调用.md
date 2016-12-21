@@ -99,3 +99,45 @@ http://cxf.apache.org/
 ````
 ./wsdl2java -d /Users/moxingwang/Desktop/soap -client http://localhost:8080/sap/soap/user?wsdl
 ````
+
+## 使用代理调用
+* 依赖jar
+
+````
+ <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxws -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>3.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>3.1.9</version>
+        </dependency>
+````
+
+* 调用代码
+````
+public class Test {
+
+    public static void main(String[] args) {
+
+        JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
+        Client client = dcf.createClient("http://192.168.224.182:8088/sapPushExpenseWebservice?wsdl");
+        try {
+            List<String> list = new ArrayList<>();
+            list.add("测试");
+
+            Object[] objects = client.invoke("pushExpense", list);
+
+            System.out.println(JSON.toJSONString(objects[0]));
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+}
+````
