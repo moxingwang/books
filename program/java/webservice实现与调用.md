@@ -96,8 +96,13 @@ http://cxf.apache.org/
 
 * 生成代码
 
+
 ````
+远程生成
 ./wsdl2java -d /Users/moxingwang/Desktop/soap -client http://localhost:8080/sap/soap/user?wsdl
+本地生成
+./wsdl2java -p com.chinaredstar.bill.integration.demo.test -d /Users/moxingwang/Desktop/soap /Users/moxingwang/Desktop/ss.xml
+
 ````
 
 ## 使用代理调用
@@ -119,6 +124,7 @@ http://cxf.apache.org/
 
 * 调用代码
 ````
+1.第一种方式调用
 public class Test {
 
     public static void main(String[] args) {
@@ -140,4 +146,19 @@ public class Test {
     }
 
 }
+2.第二种方式调用
+        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+        factory.setServiceClass(SIZFIFMECSRECEIVEOS.class);
+        factory.setUsername("ZWS_ECS");
+        factory.setPassword("abcd1234");
+        factory.setAddress("http://172.16.3.21:50000/XISOAPAdapter/MessageServlet?senderParty=&senderService=BC_NREM&receiverParty=&receiverService=&interface=SI_ZREI_BAPI_RE_CN_OVER_OS&interfaceNamespace=http%3A%2F%2Fchinaredstar.com%2Fecc2oms");
+        SIZFIFMECSRECEIVEOS port = (SIZFIFMECSRECEIVEOS) factory.create();
+
+        ZFIFMECSRECEIVE zfifmecsreceive = new ZFIFMECSRECEIVE();
+        zfifmecsreceive.setICBUTYNUM("121221");
+        TABLEOFZMMFIFMCOMONOUTNEW tableofzmmfifmcomonoutnew = new TABLEOFZMMFIFMCOMONOUTNEW();
+
+        zfifmecsreceive.setETBELNR(tableofzmmfifmcomonoutnew);
+
+        ZFIFMECSRECEIVEResponse a = port.siZFIFMECSRECEIVEOS(zfifmecsreceive);
 ````
