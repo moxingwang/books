@@ -83,6 +83,7 @@ public class SapPushExpenseWebservice implements ISapPushExpenseWebservice {
 ````
 
 ### 3.  dubbo实现
+    * http://blog.csdn.net/u012129031/article/details/53259877
 
 # 二、Webservice调用
 
