@@ -29,6 +29,19 @@ public class SapPushExpenseWebservice  {
 * Cxf boot配置
 
 ````
+<dependency>
+    <groupId>org.apache.cxf</groupId>
+    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+    <version>3.1.6</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.cxf</groupId>
+    <artifactId>cxf-rt-transports-http</artifactId>
+    <version>3.1.6</version>
+</dependency>
+````
+
+````
 @Configuration
 public class SapCxfConfig {
 
@@ -83,6 +96,7 @@ public class SapPushExpenseWebservice implements ISapPushExpenseWebservice {
 ````
 
 ### 3.  dubbo实现
+    * http://blog.csdn.net/u012129031/article/details/53259877
 
 # 二、Webservice调用
 
