@@ -1,17 +1,28 @@
-Git 中的tag指向一次commit的id，通常用来给开发分支做一个标记，如标记一个版本号。
-打标签
-git tag -a v1.01 -m "Relase version 1.01"
-注解：git tag 是打标签的命令，-a 是添加标签，其后要跟新标签号，-m 及后面的字符串是对该标签的注释。
-提交标签到远程仓库
-git push origin --tags
-注解：就像git push origin master 把本地修改提交到远程仓库一样，-tags可以把本地的打的标签全部提交到远程仓库。
-删除标签
-git tag -d v1.01
-注解：-d 表示删除，后面跟要删除的tag名字
-删除远程标签
-git push origin :refs/tags/v1.01
-注解：就像git push origin :branch_1 可以删除远程仓库的分支branch_1一样， 冒号前为空表示删除远程仓库的tag。
-查看标签
-git tag
-或者
-git tag -l
+* Git标签，git打标签
+
+````
+Git跟其他版本控制系统一样，可以打标签（tag）标记一个版本号。
+一、列出标签
+1. 列出当前仓库的所有标签：git tag
+2. 搜素符合条件的标签：git tag -l "3.7.*"
+二、创建标签tag，并推送到远程
+1. 打标签：git tag -a "3.7.5" -m "日本邀请制"
+2. 给指定的commit打标签：git tag -a "3.7.4" 9fbc3d0
+3. 提交指定标签到git服务器：git push origin "3.7.5" 
+4. 提交本地所有标签到git服务器：git push origin --tags
+三、切换、并查看标签信息
+1. 切换到指定标签：git checkout "3.7.5"
+2. 查看标签的版本信息：git show "3.7.5"
+四、删除标签
+1. 删除标签tag：git tag -d 3.7.5
+2. 删除远程服务器的标签：git push origin :refs/tags/3.7.5
+命令总结：
+命令git tag <name>用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+命令git tag -a <tagname> -m "blablabla..."可以指定标签信息；
+命令git tag -s <tagname> -m "blablabla..."可以用PGP签名标签；
+命令git tag可以查看所有标签。
+命令git push origin <tagname>可以推送一个本地标签；
+命令git push origin --tags可以推送全部未推送过的本地标签；
+命令git tag -d <tagname>可以删除一个本地标签；
+命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
+````
