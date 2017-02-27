@@ -4,7 +4,7 @@
 ## SpringBoot嵌入SwaggerUI
 ### 步骤
 
-1.    jar包引入
+**1. jar包引入**
 
 ````
 <dependency>
@@ -21,7 +21,7 @@
 </dependency>
 ````
 
-2.    基于SpringBoot配置SwaggerConfig
+**2. 基于SpringBoot配置SwaggerConfig**
 
 ````
 @Configuration
@@ -45,7 +45,7 @@ public class SwaggerConfig {
 
 ````
 
-3.    WebConfig配置说明
+**3. WebConfig配置说明**
 
 > 这里有一个需要注意的问题，让WebConfig去继承WebMvcAutoConfigurationAdapter而不是直接继承WebMvcConfigurerAdapter，否则Swagger的页面出不来。
 
@@ -94,5 +94,6 @@ public class WebConfig extends WebMvcAutoConfigurationAdapter {
 }
 ````
 
-4.    SwaggerUI页面访问
+**4. SwaggerUI页面访问**
+
 > http://localhost:8080/projectName/swagger-ui.html#!/
