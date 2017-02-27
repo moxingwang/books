@@ -96,4 +96,6 @@ public class WebConfig extends WebMvcAutoConfigurationAdapter {
 
 #### 4.SwaggerUI页面访问
 
-> http://localhost:8080/projectName/swagger-ui.html#!/
+````
+http://localhost:8080/projectName/swagger-ui.html#!/
+````
