@@ -1,0 +1,1 @@
+* <http://stackoverflow.com/questions/39694531/jdbc-mysql-store-emojis-without-utf8mb4-encoding>
