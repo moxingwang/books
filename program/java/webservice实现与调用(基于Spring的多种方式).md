@@ -110,7 +110,6 @@ http://cxf.apache.org/
 
 * 生成代码
 
-
 ````
 远程生成
 ./wsdl2java -d /Users/moxingwang/Desktop/soap -client http://localhost:8080/sap/soap/user?wsdl
@@ -137,6 +136,7 @@ http://cxf.apache.org/
 ````
 
 * 调用代码
+
 ````
 1.第一种方式调用
 public class Test {
