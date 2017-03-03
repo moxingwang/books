@@ -1,5 +1,5 @@
 三．命令行模式操作
-
+![image](https://github.com/moxingwang/books/blob/master/resources/image/2012040910354071972.jpg?raw=true)
 1．进入插入模式
 
 按“i”：从光标当前位置开始输入文件。
