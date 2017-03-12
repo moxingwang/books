@@ -175,4 +175,23 @@ public class Test {
         zfifmecsreceive.setETBELNR(tableofzmmfifmcomonoutnew);
 
         ZFIFMECSRECEIVEResponse a = port.siZFIFMECSRECEIVEOS(zfifmecsreceive);
+        
+  第三种方式调用
+        ZFMRECPBAPIRECNCREATE zfmrecpbapirecncreate = new ZFMRECPBAPIRECNCREATE();
+  
+          java.net.Authenticator myAuth = new java.net.Authenticator() {
+              @Override
+              protected java.net.PasswordAuthentication getPasswordAuthentication() {
+                  return new java.net.PasswordAuthentication("dengwj", "1qaz2wsx".toCharArray());
+              }
+          };
+          java.net.Authenticator.setDefault(myAuth);
+          URL url = null;
+          try {
+              url = new URL("http://172.16.3.33:50000/dir/wsdl?p=sa/a862bcbfb95838b382e23a7a49252f1c");
+          } catch (MalformedURLException e) {
+              System.out.println(e.getMessage());
+              e.printStackTrace();
+          }
+          SIZFMRECPBAPIRECNCREATEOutService service = new SIZFMRECPBAPIRECNCREATEOutService(url);
 ````
