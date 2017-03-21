@@ -116,6 +116,12 @@ http://cxf.apache.org/
 本地生成
 ./wsdl2java -p com.chinaredstar.bill.integration.demo.test -d /Users/moxingwang/Desktop/soap /Users/moxingwang/Desktop/ss.xml
 
+
+带密码的
+11.txt文件内容
+    http://3RDSOAP2PI:1234567@172.16.3.21:50000/dir/wsdl?p=sa/a3102884ecae325ca312de6d9720e2fb
+生产指令
+    wsimport -d /Users/moxingwang/Desktop/soap1 -keep -verbose -Xauthfile /Users/moxingwang/Desktop/sap/11.txt ‘http://172.16.3.21:50000/dir/wsdl?p=sa/a3102884ecae325ca312de6d9720e2fb’
 ````
 
 ## 使用代理调用
